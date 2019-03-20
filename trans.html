@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Қарақалпақша транслитерация</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			
+			<form action="trans.php" class="form" method="post">
+
+				<p>Сайлаң
+					<select name="method" class="form-control" id="select">
+						<option value="1">Кирилл -> Латын</option>
+						<option value="2">Латын -> Кирилл</option>
+					</select>
+				</p>
+				<p>Текстты киритың:
+				<textarea id="received" class="form-control" cols="40" rows="8"></textarea>
+				</p>
+				<p><button type="button" class="btn btn-success">Транслитерация</button></p>
+				<p>Нәтийже:
+				<textarea id="sended" class="form-control" cols="40" rows="8"></textarea>
+				</p>
+			</form>
+
+		</div>
+	</div>
+</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/trans.js"></script>
+</body>
+</html>	
+
