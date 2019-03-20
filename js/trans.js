@@ -13,6 +13,7 @@ $("button").click(function(){
 
 	if(option == 1) {
 		for(var i = 0; i < n; i++) {
+			if (received[i] === 'ь' || received[i] === 'ъ') received[i] = '';
 			for(var j = 0; j < kirill.length; j++) {
 					if(received[i] == kirill[j]) {
 						received[i] = latin[j];
