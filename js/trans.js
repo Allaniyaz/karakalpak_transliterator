@@ -12,15 +12,20 @@ $("button").click(function(){
 	var n = received.length;
 
 	if(option == 1) {
-		for(var i = 0; i < n; i++) {
-			for(var j = 0; j < kirill.length; j++) {
-					if(received[i] == kirill[j]) {
-						received[i] = latin[j];
-						break;
+				for(var i = 0; i < n; i++) {
+					for(var j = 0; j < kirill.length; j++) {
+							if(received[i] == 'Э') received[i] = 'E';
+							else if(received[i] == 'э') received[i] = 'e';
+							else if(received[i] == 'Ь' || received[i] == 'ь' || received[i] == 'Ъ' || received[i] == 'ъ') received[i] = '';
+							else {
+								if(received[i] == kirill[j]) {
+									received[i] = latin[j];
+									break;
+								}
+							}
 					}
-			}
-		}
-
+				}
+		
 	} 
 	else {
 		
