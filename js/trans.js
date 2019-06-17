@@ -1,12 +1,19 @@
+//Karakalpak latin and cyrillic alphabet
 var latin = ['Y', 'C', 'S', 'y', 'c', 's', 'A', 'Á', 'B', 'D', 'E', 'F', 'G', 'Ǵ', 'H', 'X', 'Í', 'I', 'J', 'K', 'Q', 'L', 'M', 'N', 'Ń', 'O', 'Ó', 'P', 'R', 'T', 'U', 'Ú', 'V', 'W', 'Z', 'Ya', 'Yu', 'Yo', 'Sh', 'Ch', 'Sh', 'a', 'á', 'b', 'd', 'e', 'f', 'g', 'ǵ', 'h', 'x', 'ı', 'i', 'j', 'k', 'q', 'l', 'm', 'n', 'ń', 'o', 'ó', 'p', 'r', 't', 'u', 'ú', 'v', 'w', 'z', 'ya', 'yu', 'yo', 'sh', 'ch', 'sh'];
 var kirill = ['Й', 'Ц', 'С','й', 'ц', 'с', 'А', 'Ә', 'Б', 'Д', 'Е', 'Ф', 'Г', 'Ғ', 'Ҳ', 'Х', 'Ы', 'И', 'Ж', 'К', 'Қ', 'Л', 'М', 'Н', 'Ң', 'О', 'Ө', 'П', 'Р', 'Т', 'У', 'Ү', 'В', 'Ў', 'З', 'Я', 'Ю', 'Ё', 'Ш', 'Ч', 'Щ', 'а', 'ә', 'б', 'д', 'е', 'ф', 'г', 'ғ', 'ҳ', 'х', 'ы', 'и', 'ж', 'к', 'қ', 'л', 'м', 'н', 'ң', 'о', 'ө', 'п', 'р', 'т', 'у', 'ү', 'в', 'ў', 'з', 'я', 'ю', 'ё', 'ш', 'ч', 'щ'];
 
 
+//new and old alphabetes of Karakalpak
+var alphabet_old = ["A", "a", "I", "i", "O", "o", "U" ,"u", "N", "n", "G", "g"];
+var alphabet_new = ["Á", "á", "Í", "ı", "Ó", "ó", "Ú" ,"ú", "Ń", "ń", "Ǵ", "ǵ"];
+
+
 var select = document.getElementById("select");
 
+
 $("button").click(function(){
-			
-	var option = select.options[select.selectedIndex].value;
+
+	var option = select.options[select.selectedIndex].value;			
 	var received = $('#received').val();
 	received = received.split('');
 	var n = received.length;
@@ -27,7 +34,7 @@ $("button").click(function(){
 				}
 		
 	} 
-	else {
+	else if(option == 2) {
 		
 		for(var i = 0; i < n; i++) {
 			if(received[i] == 'Y' || received[i] == 'y') {
@@ -79,8 +86,36 @@ $("button").click(function(){
 			}
 		}
 	}
+	else {
+
+		for(var i = 0; i < n; i++) {
+			for(var j = 0; j < alphabet_old.length; j++) {
+			
+				if(received[i] == alphabet_old[j]) {
+					if(received[i+1] == "'") {
+						received[i] = alphabet_new[j];
+						delete received[i+1];
+					}
+				}
+			}
+		}
+	}
 
 	var sended = received.join('');
 	$('#sended').val(sended);
 		
+});
+
+
+
+$('#select').change(function() {
+	
+	var option = select.options[select.selectedIndex].value;
+	if(option == 3) {
+		$('#button_label').text(' Өзгертиў ');
+	}
+	else {
+		$('#button_label').text('Транслитерация');
+	}
+
 });
