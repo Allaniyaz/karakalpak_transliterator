@@ -92,9 +92,10 @@ $("button").click(function(){
 			for(var j = 0; j < alphabet_old.length; j++) {
 			
 				if(received[i] == alphabet_old[j]) {
-					if(received[i+1] == "'") {
+					if(received[i+1] == "'" || received[i+1] == "’") {
 						received[i] = alphabet_new[j];
 						delete received[i+1];
+						break;
 					}
 				}
 			}
