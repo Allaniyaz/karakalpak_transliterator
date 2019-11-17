@@ -9,12 +9,12 @@ var alphabet_new = ["Á", "á", "Í", "ı", "Ó", "ó", "Ú" ,"ú", "Ń", "ń", 
 
 
 var select = document.getElementById("select");
+var button = document.getElementById("button");
 
-
-$("button").click(function(){
+button.addEventListener("click", function() {
 
 	var option = select.options[select.selectedIndex].value;			
-	var received = $('#received').val();
+	var received = document.getElementById("received").value;
 	received = received.split('');
 	var n = received.length;
 
@@ -103,20 +103,20 @@ $("button").click(function(){
 	}
 
 	var sended = received.join('');
-	$('#sended').val(sended);
+	document.getElementById("sended").value = sended;
 		
 });
 
 
 
-$('#select').change(function() {
+select.addEventListener("change", function() {
 	
 	var option = select.options[select.selectedIndex].value;
 	if(option == 3) {
-		$('#button_label').text(' Өзгертиў ');
+		document.getElementById("button").textContent = " Өзгертиў ";
 	}
 	else {
-		$('#button_label').text('Транслитерация');
+		document.getElementById("button").textContent = "Транслитерация";
 	}
 
 });
